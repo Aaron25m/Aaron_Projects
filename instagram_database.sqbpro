@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/AARON/social_media.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2561"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,7:mainfollows"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="bookmarks" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="74"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="comment_likes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="117"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="comments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="117"/><column index="2" value="135"/><column index="3" value="75"/><column index="4" value="74"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="follows" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="108"/><column index="2" value="111"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="hashtag_follow" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="106"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="hashtags" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="106"/><column index="2" value="137"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="login" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="80"/><column index="2" value="74"/><column index="3" value="121"/><column index="4" value="162"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="photos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="88"/><column index="2" value="206"/><column index="3" value="75"/><column index="4" value="52"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="post" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="88"/><column index="3" value="84"/><column index="4" value="74"/><column index="5" value="74"/><column index="6" value="79"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="post_likes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="75"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="post_tags" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="75"/><column index="2" value="106"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="users" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="138"/><column index="3" value="300"/><column index="4" value="300"/><column index="5" value="245"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="videos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="84"/><column index="2" value="300"/><column index="3" value="75"/><column index="4" value="52"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE users(
+  user_id INTEGER PRIMARY KEY,
+  username VARCHAR(255) UNIQUE NOT NULL,
+  profile_photo_url VARCHAR(255),
+  bio VARCHAR(255),
+  email VARCHAR(30)
+);
+
+CREATE TABLE photos (
+  photo_id INTEGER PRIMARY KEY,
+  photo_url VARCHAR(255) NOT NULL UNIQUE,
+  post_id INTEGER NOT NULL,
+  size FLOAT CHECK (size &lt; 5)
+);
+
+CREATE TABLE videos (
+  video_id INTEGER PRIMARY KEY,
+  video_url VARCHAR(255) NOT NULL UNIQUE,
+  post_id INTEGER NOT NULL,
+  size FLOAT CHECK (size &lt; 10)
+);
+
+CREATE TABLE post (
+  post_id INTEGER PRIMARY KEY,
+  photo_id INTEGER,
+  video_id INTEGER,
+  user_id INTEGER NOT NULL,
+  caption VARCHAR(200),
+  location VARCHAR(50),
+  FOREIGN KEY(user_id) REFERENCES users(user_id),
+  FOREIGN KEY(photo_id) REFERENCES photos(photo_id),
+  FOREIGN KEY(video_id) REFERENCES videos(video_id)
+);
+
+CREATE TABLE comments (
+  comment_id INTEGER PRIMARY KEY,
+  comment_text VARCHAR(255) NOT NULL,
+  post_id INTEGER NOT NULL,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY(post_id) REFERENCES post(post_id),
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE post_likes (
+  user_id INTEGER NOT NULL,
+  post_id INTEGER NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(user_id),
+  FOREIGN KEY(post_id) REFERENCES post(post_id),
+  PRIMARY KEY(user_id, post_id)
+);
+
+CREATE TABLE comment_likes (
+  user_id INTEGER NOT NULL,
+  comment_id INTEGER NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(user_id),
+  FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
+  PRIMARY KEY(user_id, comment_id)
+);
+
+CREATE TABLE follows (
+  follower_id INTEGER NOT NULL,
+  followee_id INTEGER NOT NULL,
+  FOREIGN KEY(follower_id) REFERENCES users(user_id),
+  FOREIGN KEY(followee_id) REFERENCES users(user_id),
+  PRIMARY KEY(follower_id, followee_id)
+);
+
+CREATE TABLE hashtags (
+  hashtag_id INTEGER PRIMARY KEY,
+  hashtag_name VARCHAR(255) UNIQUE
+);
+
+CREATE TABLE hashtag_follow (
+  user_id INTEGER NOT NULL,
+  hashtag_id INTEGER NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(user_id),
+  FOREIGN KEY(hashtag_id) REFERENCES hashtags(hashtag_id),
+  PRIMARY KEY(user_id, hashtag_id)
+);
+
+CREATE TABLE post_tags (
+  post_id INTEGER NOT NULL,
+  hashtag_id INTEGER NOT NULL,
+  FOREIGN KEY(post_id) REFERENCES post(post_id),
+  FOREIGN KEY(hashtag_id) REFERENCES hashtags(hashtag_id),
+  PRIMARY KEY(post_id, hashtag_id)
+);
+
+CREATE TABLE bookmarks (
+  post_id INTEGER NOT NULL,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY(post_id) REFERENCES post(post_id),
+  FOREIGN KEY(user_id) REFERENCES users(user_id),
+  PRIMARY KEY(user_id, post_id)
+);
+
+CREATE TABLE login (
+  login_id INTEGER NOT NULL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  ip VARCHAR(50) NOT NULL,
+  login_time TIMESTAMP NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
+-- Inserting sample data into the tables
+
+INSERT INTO users(user_id,username, email, profile_photo_url, bio) VALUES 
+(1,'kanavphull', 'as1mobiles@gmail.com', 'https://pbs.twimg.com/profile_images/1386885117428191232/70SyHOxP_400x400.jpg', 'Hedonist yet Spiritual || IT at NITJ 2024'),
+(2,'raj gupta', 'admin@1shopbuy.com', '/klsadf893724:f//432', 'soon to be updated'),
+(3,'Sahib Singh', '12angeldesignworld@gmail.com', 'https://pbs.twimg.com/profile_images/1465003815820693506/gbTJoe66_400x400.jpg', 'Life is a journey, It drives you MAD.|| IT NITJ''24'),
+(4,'Sakshi Warandani', 'deepak@24sevenindia.com', 'https://vader.news/__export/1612817390103/sites/gadgets/img/2021/02/08/ian_somerhalder_vampires.jpg_246448593.jpg', 'NITJ wish me on 23 jan'),
+(5,'Omnicron Larson', '101cartinfo@gmail.com', '/sdfvsdf', 'Heart Stealer'),
+(6,'dettol sharma', 'the.yellow.gold@gmail.com', '/sdfvsdf', 'Dettol Stealer'),
+(7,'sunil', 'deepak@24sevenindia.com', '/yisadf324//', 'hotel management'),
+(8,'sanjay', 'deepak@24sevenindia.com', '/fduiahj43', 'football lover'),
+(9,'Axel Sivert Anker', 'gazender.686@gmail.com', '/adaskjnas', 'Norwegian'),
+(10,'Steven', 'sravi07@yahoo.com', '/acdsccsdc', 'living life my way');
+
+INSERT INTO photos(photo_url, post_id, size) VALUES
+('https://picsum.photos/100', 26, 4),
+('https://picsum.photos/101', 27, 1),
+('https://picsum.photos/102', 28, 2),
+('https://picsum.photos/103', 29, 1),
+('https://picsum.photos/104', 30, 2),
+('https://picsum.photos/105', 31, 3),
+('https://picsum.photos/106', 32, 4),
+('https://picsum.photos/107', 33, 4),
+('https://picsum.photos/108', 34, 2),
+('https://picsum.photos/109', 35, 2),
+('https://picsum.photos/110', 36, 2);
+
+INSERT INTO videos(video_url, post_id, size) VALUES ('https://www.youtube.com/watch?v=1TKJvWbZErY', 26, 1), ('https://www.youtube.com/watch?v=dcgeBa78WE8', 27, 8), ('https://www.youtube.com/watch?v=vOfgVs6blGU', 28, 3), ('https://www.youtube.com/watch?v=gDGbwhoWRBQ',29, 2), ('https://www.youtube.com/watch?v=UAj7FB-BFGg', 30, 1), ('https://www.youtube.com/watch?v=RzppsLjuSaI', 31, 3), ('https://www.youtube.com/watch?v=E1GLuxJ9mkU', 32, 3), ('https://www.youtube.com/watch?v=tjrFQQjTI6c', 33, 2), ('https://www.youtube.com/watch?v=IwNSd7m2HRg', 34, 7), ('https://www.youtube.com/watch?v=4javFbk9Kn8', 35, 9), ('https://www.youtube.com/watch?v=BuX7TQc4a0E', 36, 4);
+INSERT INTO LOGIN(user_id, ip, login_time) VALUES (1, '186.83.147.14', '2023-04-03 11:30:00'), (2, '95.43.246.66', '2023-04-03 11:30:00'), (3, '105.238.37.204', '2023-04-03 11:30:00'), (4, '13.120.97.136', '2023-04-03 11:30:00'), (5, '0.83.214.172', '2023-04-03 11:30:00'), (6, '20.182.93.222', '2023-04-03 11:30:00'), (7, '200.237.53.32', '2023-04-03 11:30:00'), (8, '41.81.231.81', '2023-04-03 11:30:00'), (9, '24.223.2.33', '2023-04-03 11:30:00'), (10, '8.168.37.68', '2023-04-03 11:30:00');
+
+insert into post (post_id,photo_id,video_id,user_id,caption,location) values
+(26,1,1,1,'HEY!!','VHA JHA KOI AATA JAATA NI'),
+(27,2,2,2,'Live a good story.','The Red Fort, Delhi.'),
+(28,3,3,3,'Escape the ordinary.','The Taj Mahal, Agra.'),
+(29,4,4,4,'The best is yet to come.','Pangong Lake, Ladakh.'),
+(30,5,5,5,'These are days we live for.','Valley of Flowers, Nainital.'),
+(31,6,6,6,'Life happens, coffee helps.','Jaisalmer Fort, Jaisalmer.'),
+(32,7,7,7,'Short sassy cute &amp; classy.','Ruins of Hampi, Karnataka.'),
+(33,8,8,8,'The future is bright.','Ghats at Varanasi, Uttar Pradesh.'),
+(34,9,9,9,'Namastay in bed.','Backwaters, Kerala.'),
+(35,10,10,10,'I have more issues than vogue.','abhayapuri');
+
+INSERT INTO HASHTAGS(hashtag_name) VALUES (' #joinbtsarmy'), (' #kisaansupport'), (' #fitnessfreak'), (' #runforunity'), (' #studentlivesmatter'), (' #cancellJEEiit'), (' #REOPEN colleges'), (' #party'), (' #followme'), (' #christmas'), (' #socialmedia');
+INSERT INTO post_tags(post_id, hashtag_id) VALUES (26, 1), (27, 2), (28, 3), (29, 4), (30, 5), (31, 6), (32, 7), (33, 8), (34, 9), (35, 10);
+INSERT INTO POST_LIKES(user_id,post_id) VALUES (1,26), (2,26), (3,26), (4,31), (5,30), (6,27), (7,35), (8,26), (9,30), (10,30);
+INSERT INTO COMMENTS(comment_text, post_id, user_id) VALUES ('great man', 26, 1), ('looking greate bhai', 27, 2), ('nice place keep enjoying', 28, 3), ('great bhai meetu soon ', 29, 4), ('aag lga di bhai', 30, 5), ('briallant keep working', 31, 6), ('soon will join you all', 32, 7), ('nice man !! loved it', 33, 8), ('bawnadar aayega abb ', 34, 9), ('boht tezz ho rhe ho ', 35, 10);
+INSERT INTO COMMENT_LIKES(user_id,comment_id) VALUES(1 , 2), (3 , 4), (4 , 1), (3 , 7), (8 , 3), (6 , 1), (5 , 2), (6 , 9), (4 , 4), (2 , 8), (9 , 3);
+INSERT INTO bookmarks(post_id, user_id) VALUES (26, 1), (30, 2), (27, 3), (35, 4), (30, 5), (26, 6), (35, 7), (26, 8), (30, 9), (30, 10);
+INSERT INTO follows(follower_id, followee_id) VALUES (2, 10), (6, 9), (7, 5), (8, 2), (9, 3), (10, 7), (1, 9), (3, 5), (4, 8), (5, 2), (6, 7);
+INSERT INTO hashtag_follow(user_id, hashtag_id) VALUES (1, 2), (3, 4), (4, 1), (3, 7), (8, 3), (6, 1), (5, 2), (6, 9), (4, 4), (2, 8), (9, 3);
+
+-- 1. Most Followed Hashtag
+SELECT 
+	hashtag_name AS 'Hashtags', COUNT(hashtag_follow.hashtag_id) AS 'Total Follows' 
+FROM hashtag_follow, hashtags 
+WHERE hashtags.hashtag_id = hashtag_follow.hashtag_id
+GROUP BY hashtag_follow.hashtag_id
+ORDER BY COUNT(hashtag_follow.hashtag_id) DESC LIMIT 5;
+-- 2. Most Used Hashtags
+SELECT 
+	hashtag_name AS 'Trending Hashtags', 
+    COUNT(post_tags.hashtag_id) AS 'Times Used'
+FROM hashtags,post_tags
+WHERE hashtags.hashtag_id = post_tags.hashtag_id
+GROUP BY post_tags.hashtag_id
+ORDER BY COUNT(post_tags.hashtag_id) DESC LIMIT 10;
+-- 3. Most Inactive User
+SELECT user_id, username AS 'Most Inactive User'
+FROM users
+WHERE user_id NOT IN (SELECT user_id FROM post); 
+--4. Most Liked Posts with Username of the Postee and Hashtags used
+SELECT 
+    users.username,
+    post.post_id,
+    post.caption,
+    hashtags.hashtag_name,
+    COUNT(post_likes.post_id) AS 'Likes Garnered'
+FROM 
+    post
+    JOIN users ON post.user_id = users.user_id
+    LEFT JOIN post_tags ON post.post_id = post_tags.post_id
+    LEFT JOIN hashtags ON post_tags.hashtag_id = hashtags.hashtag_id
+    JOIN post_likes ON post.post_id = post_likes.post_id
+GROUP BY post.post_id
+ORDER BY COUNT(post_likes.post_id) DESC;
+-- 5. Average post per user
+SELECT ROUND((COUNT(post_id) / COUNT(DISTINCT user_id) ),2) AS 'Average Post per User' 
+FROM post;
+-- 6. User who liked every single post (CHECK FOR BOT)
+SELECT username, Count(*) AS num_likes 
+FROM users 
+INNER JOIN post_likes ON users.user_id = post_likes.user_id 
+GROUP  BY post_likes.user_id 
+HAVING num_likes = (SELECT Count(*) FROM   post); 
+-- 7. Longest captions in post
+SELECT user_id, caption, LENGTH(post.caption) AS caption_length FROM post
+ORDER BY caption_length DESC LIMIT 5;
+-- 8. User Not Following Anyone
+SELECT user_id, username AS 'User Not Following Anyone'
+FROM users
+WHERE user_id NOT IN (SELECT follower_id FROM follows);
+--9. Searching for specific words in comments
+SELECT users.username, comments.comment_id, comments.comment_text
+FROM comments
+JOIN users ON users.user_id = comments.user_id
+WHERE comments.comment_text REGEXP 'lame';
+--10. Mutual Friends
+SELECT u1.username, u2.username 
+FROM follows AS f1 
+JOIN follows AS f2 ON f1.follower_id = f2.followee_id AND f1.followee_id = f2.follower_id AND f1.follower_id &lt; f1.followee_id 
+JOIN users AS u1 ON f1.follower_id = u1.user_id 
+JOIN users AS u2 ON f1.followee_id = u2.user_id;
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
